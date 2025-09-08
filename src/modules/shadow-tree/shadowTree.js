@@ -287,7 +287,7 @@ const renderToBuffer = async (node, buffer, offsetX = 0, offsetY = 0, depth = 0,
     const scale = style.fontSize;
 
     if (style.pixelFont) {
-      const fontFamily = style.fontFamily || 'full';
+      const fontFamily = style.fontFamily || 'default';
       const { cellCols, cellRows, grid } = getPixelFont(text, scale, fontFamily);
       const width = frame.width;
       const height = frame.height;

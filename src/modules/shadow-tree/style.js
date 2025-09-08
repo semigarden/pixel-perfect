@@ -82,7 +82,7 @@ const baseDefaults = Object.freeze({
   verticalAlign: 'top',
   fontSize: 1,
   pixelFont: false,
-  fontFamily: 'full',
+  fontFamily: 'default',
   border: { width: 0, color: 'white', style: 'quarter' },
   zIndex: 0,
   position: 'static',
@@ -172,7 +172,7 @@ const normalizeStyle = (type, rawStyle) => {
   const verticalAlign = oneOf(s.verticalAlign, ['top', 'middle', 'bottom'], d.verticalAlign);
   const fontSize = Math.max(1, coerceInteger(s.fontSize, d.fontSize));
   const pixelFont = coerceBoolean(s.pixelFont, d.pixelFont);
-  const fontFamily = oneOf(s.fontFamily, ['full', 'compact'], d.fontFamily || 'full');
+  const fontFamily = oneOf(s.fontFamily, ['full', 'compact', 'default'], d.fontFamily || 'default');
   const zIndex = coerceInteger(s.zIndex, d.zIndex || 0);
   const position = oneOf(s.position, ['static', 'fixed', 'absolute'], d.position || 'static');
 
