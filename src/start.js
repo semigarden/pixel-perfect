@@ -418,6 +418,14 @@ const main = async () => {
       laidOut = await render(tree);
     });
 
+    event.on('key: ', async () => {
+      if (state.view === 'photo') {
+        state.showPhotoInfo = !state.showPhotoInfo;
+        tree = await Interface();
+        laidOut = await render(tree);
+      }
+    });
+
     let resizeTimer = null;
     event.on('resize', async () => {
       if (resizeTimer) clearTimeout(resizeTimer);

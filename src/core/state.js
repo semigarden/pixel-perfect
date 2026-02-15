@@ -9,6 +9,7 @@ const state = {
   currentPath: currentPath,
   view: 'grid',
   photoPath: null,
+  showPhotoInfo: false,
   mediaIndex: 0,
   mediaFiles: [],
   directoryItemCache: new Map(),

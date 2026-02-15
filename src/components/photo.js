@@ -118,23 +118,24 @@ const Photo = async (imagePath) => {
         staticMode: false,
       }, imagePath),
 
-      element('text', {
-        width: state.terminal.width,
-        height: 3,
-        // y: state.terminal.height - state.terminal.height / 2,
-        y: state.terminal.height - 3,
-        textAlign: 'center',
-        verticalAlign: 'bottom',
-        position: 'absolute',
-        fontSize: 1,
-        pixelFont: true,
-        fontFamily: 'compact',
-        backgroundColor: 'black',
-        backgroundColorOpacity: 0.6,
-        color: 'white',
-        overflowX: 'auto',
-        overflowY: 'hidden',
-      }, truncateFilenameKeepExtension(imagePath.split('/').pop(), state.terminal.width - 2, 1, 'compact')),
+      ...(state.showPhotoInfo ? [
+        element('text', {
+          width: state.terminal.width,
+          height: 3,
+          y: state.terminal.height - 3,
+          textAlign: 'center',
+          verticalAlign: 'bottom',
+          position: 'absolute',
+          fontSize: 1,
+          pixelFont: true,
+          fontFamily: 'compact',
+          backgroundColor: 'black',
+          backgroundColorOpacity: 0.6,
+          color: 'white',
+          overflowX: 'auto',
+          overflowY: 'hidden',
+        }, truncateFilenameKeepExtension(imagePath.split('/').pop(), state.terminal.width - 2, 1, 'compact')),
+      ] : []),
     ])
   ];
 
