@@ -124,7 +124,7 @@ const Photo = async (imagePath) => {
           height: 3,
           y: state.terminal.height - 3,
           textAlign: 'center',
-          verticalAlign: 'bottom',
+          verticalAlign: 'middle',
           position: 'absolute',
           fontSize: 1,
           pixelFont: true,

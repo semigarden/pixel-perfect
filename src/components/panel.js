@@ -51,7 +51,7 @@ const Panel = () => {
                 'text',
                 {
                   width: 64,
-                  height: 32,
+                  height: 34,
                   textAlign: 'center',
                   verticalAlign: 'middle',
                   fontSize: 3,
@@ -133,7 +133,8 @@ const Panel = () => {
       ]
     ),
 
-    element('div', {
+    ...(state.showPanelBar ? [
+      element('div', {
         y: state.terminal.height - 3,
         width: state.terminal.width,
         height: 4,
@@ -141,7 +142,7 @@ const Panel = () => {
         zIndex: 10,
         position: 'fixed',
       }, [
-      element('text', {
+        element('text', {
           width: state.terminal.width / 2 - 4,
           height: 4,
           x: 4,
@@ -153,23 +154,22 @@ const Panel = () => {
           backgroundColor: 'transparent',
           color: 'white',
           zIndex: 2,
-        },
-        `Directory: ${(state.currentPath || '').split('/').pop()}`
-      ),
-      element('text', {
-        width: state.terminal.width / 2 - 4,
-        height: 4,
-        x: state.terminal.width / 2 - 4,
-        textAlign: 'right',
-        verticalAlign: 'bottom',
-        fontSize: 1,
-        pixelFont: true,
-        fontFamily: 'compact',
-        backgroundColor: 'transparent',
-        color: 'white',
-        zIndex: 4,
-      }, `Selected: ${itemCount > 0 ? state.selectedIndex + 1 : 0}/${itemCount}`),
-    ]),
+        }, `Directory: ${(state.currentPath || '').split('/').pop()}`),
+        element('text', {
+          width: state.terminal.width / 2 - 4,
+          height: 4,
+          x: state.terminal.width / 2 - 4,
+          textAlign: 'right',
+          verticalAlign: 'bottom',
+          fontSize: 1,
+          pixelFont: true,
+          fontFamily: 'compact',
+          backgroundColor: 'transparent',
+          color: 'white',
+          zIndex: 4,
+        }, `Selected: ${itemCount > 0 ? state.selectedIndex + 1 : 0}/${itemCount}`),
+      ]),
+    ] : []),
   ];
 }
 

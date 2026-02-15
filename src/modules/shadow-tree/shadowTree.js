@@ -342,7 +342,7 @@ const renderToBuffer = async (node, buffer, offsetX = 0, offsetY = 0, depth = 0,
       let startRow = 0;
       if (height > bandHeight) {
         const emptyLines = height - bandHeight;
-        if (verticalAlign === 'middle') startRow = Math.floor(emptyLines / 2);
+        if (verticalAlign === 'middle') startRow = Math.round(emptyLines / 1.5);
         else if (verticalAlign === 'bottom') startRow = emptyLines;
       }
 
@@ -440,7 +440,7 @@ const renderToBuffer = async (node, buffer, offsetX = 0, offsetY = 0, depth = 0,
     if (height > bandHeight) {
       const emptyLines = height - bandHeight;
       if (verticalAlign === 'middle') {
-        startRow = Math.floor(emptyLines / 2);
+        startRow = Math.round(emptyLines / 1.5);
       } else if (verticalAlign === 'bottom') {
         startRow = emptyLines;
       }

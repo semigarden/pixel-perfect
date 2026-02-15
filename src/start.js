@@ -14,7 +14,7 @@ const main = async () => {
   try {
     // if (process.env.OPEN_DEFAULT_PHOTO === '1') {
     //   const resourcesDir = path.join(process.cwd(), 'resources');
-    //   const defaultPhotoPath = path.join(resourcesDir, '01.jpg');
+    //   const defaultPhotoPath = path.join(resourcesDir, 'l.jpg');
     //   try {
     //     const fs = require('fs');
     //     if (fs.existsSync(defaultPhotoPath)) {
@@ -421,6 +421,10 @@ const main = async () => {
     event.on('key: ', async () => {
       if (state.view === 'photo') {
         state.showPhotoInfo = !state.showPhotoInfo;
+      } else if (state.view === 'grid') {
+        state.showPanelBar = !state.showPanelBar;
+      }
+      if (state.view === 'photo' || state.view === 'grid') {
         tree = await Interface();
         laidOut = await render(tree);
       }

@@ -10,6 +10,7 @@ const state = {
   view: 'grid',
   photoPath: null,
   showPhotoInfo: false,
+  showPanelBar: false,
   mediaIndex: 0,
   mediaFiles: [],
   directoryItemCache: new Map(),
