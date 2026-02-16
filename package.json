@@ -1,34 +1,49 @@
 {
-  "name": "pixel-index",
-  "description": "A terminal-based media viewer",
-  "version": "0.0.1",
-  "author": "semigarden",
-  "license": "MIT",
-  "type": "commonjs",
-  "main": "src/start.js",
-  "files": [
-    "src",
-    "README.md",
-    "LICENSE"
-  ],
-  "engines": {
-    "node": ">=18"
-  },
-  "bin": {
-    "pi": "src/start.js"
-  },
-  "scripts": {
-    "start": "node --max-old-space-size=2048 src/start.js",
-    "gen": "node --max-old-space-size=4096 src/utils/generate.js",
-    "see": "node --max-old-space-size=2048 src/utils/display.js",
-    "play": "node --max-old-space-size=8192 src/utils/play.js",
-    "dev": "OPEN_DEFAULT_PHOTO=1 nodemon --quiet --inspect --trace-warnings --max-old-space-size=2048 --no-stdin src/start.js",
-    "test": "nodemon --quiet --inspect --trace-warnings --max-old-space-size=2048 --no-stdin src/tests/test.js"
-  },
-  "dependencies": {
-    "sharp": "^0.34.3"
-  },
-  "devDependencies": {
-    "nodemon": "^3.1.11"
-  }
+    "name": "pixel-index",
+    "description": "A terminal-based media viewer",
+    "version": "0.0.1",
+    "type": "commonjs",
+    "license": "MIT",
+    "author": {
+        "name": "semigarden",
+        "url": "https://github.com/semigarden"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/semigarden/pixel-index.git"
+    },
+    "bugs": {
+        "url": "https://github.com/semigarden/pixel-index/issues"
+    },
+    "homepage": "https://github.com/semigarden/pixel-index#readme",
+    "publishConfig": {
+        "access": "public"
+    },
+    
+    "main": "src/start.js",
+    "files": [
+        "src",
+        "README.md",
+        "LICENSE"
+    ],
+    "engines": {
+        "node": ">=18"
+    },
+    "bin": {
+        "pi": "src/start.js"
+    },
+    "scripts": {
+        "start": "node --max-old-space-size=2048 src/start.js",
+        "gen": "node --max-old-space-size=4096 src/utils/generate.js",
+        "see": "node --max-old-space-size=2048 src/utils/display.js",
+        "play": "node --max-old-space-size=8192 src/utils/play.js",
+        "dev": "OPEN_DEFAULT_PHOTO=1 nodemon --quiet --inspect --trace-warnings --max-old-space-size=2048 --no-stdin src/start.js",
+        "test": "nodemon --quiet --inspect --trace-warnings --max-old-space-size=2048 --no-stdin src/tests/test.js"
+    },
+    "dependencies": {
+        "sharp": "^0.34.3"
+    },
+    "devDependencies": {
+        "nodemon": "^3.1.11"
+    }
 }
