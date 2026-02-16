@@ -29,6 +29,11 @@ const main = async () => {
       } catch (_) {}
     }
 
+    if (process.pkg) {
+        process.env.NODE_PATH = path.join(path.dirname(process.execPath), 'node_modules');
+        require('module').Module._initPaths();
+    }
+
     process.stdout.write('\x1b[?1049h');
     process.stdout.write('\x1b[?25l');
     process.stdout.write('\x1b[?12l');
