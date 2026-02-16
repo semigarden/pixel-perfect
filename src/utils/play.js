@@ -3,6 +3,7 @@ const path = require('path');
 const { spawn } = require('child_process');
 const { display } = require('./display');
 const sharp = require('sharp');
+const { resolveDependency } = require('./resolve.js');
 
 const CONFIG = {
     maxCells: process.env.MAX_CELLS ? parseInt(process.env.MAX_CELLS) : 200000,
@@ -74,7 +75,7 @@ class Player {
         return new Promise((resolve, reject) => {
             console.log('Extracting frames with FFmpeg...');
             
-            const ffmpeg = spawn('ffmpeg', [
+            const ffmpeg = spawn(resolveDependency('ffmpeg'), [
                 '-i', videoPath,
                 '-vf', `fps=${this.fps}`,
                 '-frame_pts', '1',

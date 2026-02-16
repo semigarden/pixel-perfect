@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const { spawn } = require('child_process');
 const sharp = require('sharp');
+const { resolveDependency } = require('./resolve.js');
 
 const CONFIG = {
     maxCells: process.env.MAX_CELLS ? parseInt(process.env.MAX_CELLS) : 200000,
@@ -27,7 +28,7 @@ class GifPlayer {
 
     async getGifFps(gifPath) {
         return new Promise((resolve) => {
-            const ffprobe = spawn('ffprobe', [
+            const ffprobe = spawn(resolveDependency('ffprobe'), [
                 '-v', '0',
                 '-select_streams', 'v:0',
                 '-show_entries', 'stream=avg_frame_rate',
@@ -94,7 +95,7 @@ class GifPlayer {
         }
 
         return new Promise((resolve, reject) => {
-            const ffmpeg = spawn('ffmpeg', [
+            const ffmpeg = spawn(resolveDependency('ffmpeg'), [
                 '-i', gifPath,
                 '-vsync', '0',
                 '-frame_pts', '1',
