@@ -1,12 +1,16 @@
 {
   "name": "pixel-perfect",
   "description": "A terminal-based media viewer",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "author": "semigarden",
   "license": "MIT",
   "type": "commonjs",
   "main": "src/start.js",
-  "files": ["src", "README.md", "LICENSE"],
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
   "engines": {
     "node": ">=18"
   },
